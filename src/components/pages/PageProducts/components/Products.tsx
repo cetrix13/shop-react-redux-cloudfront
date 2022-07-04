@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  cardHeading: {
+    fontSize: '1.2rem',
+  }
 }));
 
 export default function Products() {
@@ -44,16 +47,16 @@ export default function Products() {
 
   return (
     <Grid container spacing={4}>
-      {products.map((product: Product, index: number) => (
+      {products.map((product: Product) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
               image={product.img}
-              title="Image title"
+              title={product.title}
             />
             <CardContent className={classes.cardContent}>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" className={classes.cardHeading}>
                 {product.title}
               </Typography>
               <Typography>
