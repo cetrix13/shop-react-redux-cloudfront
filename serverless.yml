@@ -17,7 +17,6 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
-  siteName: static-website.com
   client:
     bucketName: dadykin-shop-react-redux-cloudfront
     distributionFolder: build
