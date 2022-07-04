@@ -1,12 +1,13 @@
-service: node-in-aws-web
+service: shop-react-redux-cloudfront
 
-frameworkVersion: '2'
+frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
+  region: us-east-1
   # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: default
 
 plugins:
   - serverless-finch
@@ -16,14 +17,15 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
+  siteName: static-website.com
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: dadykin-shop-react-redux-cloudfront
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
-
-  ## Serverless-single-page-app-plugin configuration:
+#
+#  ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
-
+#
 resources:
   Resources:
     ## Specifying the S3 Bucket
