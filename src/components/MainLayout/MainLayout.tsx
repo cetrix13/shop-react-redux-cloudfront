@@ -5,19 +5,6 @@ import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import Header from "components/MainLayout/components/Header";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        My Store
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   container: {
     paddingBottom: theme.spacing(8),
@@ -26,7 +13,25 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  copyrightLine: {
+    marginRight: '4px',
+  }
 }));
+
+function Copyright() {
+  const classes = useStyles();
+
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      Copyright &copy;&nbsp;
+      <Link color="inherit" href="https://material-ui.com/" className={classes.copyrightLine}>
+        Antique Phones
+      </Link>
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const MainLayout: React.FC = ({children}) => {
   const classes = useStyles();

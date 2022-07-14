@@ -13,7 +13,7 @@ import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import {Field, Formik, FormikProps, FormikValues} from "formik";
 import Grid from "@material-ui/core/Grid";
-import {TextField} from "formik-material-ui";
+import {TextField} from "formik-mui";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
