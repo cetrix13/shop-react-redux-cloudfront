@@ -45,13 +45,15 @@
     "serverless-finch": "^4.0.0",
     "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "typescript": "~4.3.5",
+    "uuid": "^8.3.2",
     "yup": "^0.29.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "@types/uuid": "^8.3.4"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -9,6 +9,7 @@ import {useHistory, useParams} from 'react-router-dom';
 import PaperLayout from "components/PaperLayout/PaperLayout";
 import Typography from "@material-ui/core/Typography";
 import API_PATHS from "constants/apiPaths";
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {
@@ -107,9 +108,9 @@ export default function PageProductForm() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onSubmit = (values: FormikValues) => {
-    const formattedValues = ProductSchema.cast(values);
+    const formattedValues = { ...ProductSchema.cast(values), img: 'placeholder.png', id: uuidv4() };
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
+    axios.post(`${API_PATHS.bff}/products`, productToSave)
       .then(() => history.push('/admin/products'));
   };
 
@@ -118,7 +119,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
